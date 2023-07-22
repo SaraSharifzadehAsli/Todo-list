@@ -1,0 +1,38 @@
+@import "../shared/mixins.module.scss";
+@import "../shared/variables.module.scss";
+
+.searchBox {
+  border-radius: $borderRadius;
+  padding: 16px 24px;
+  background-color: $white;
+  @include display(flex, center, flex-start, column);
+  margin: 40px auto 16px;
+  box-shadow: $boxShadow;
+}
+
+.searchBox.darkTheme {
+  background-color: $veryDarkDesaturatedBlueDarkTheme;
+  box-shadow: $boxShadowDark;
+
+  & input {
+    color: $darkGrayishBlueLightTheme;
+  }
+}
+
+.container {
+  @include display(inline-flex, center, center, row, 24px);
+}
+
+.container input {
+  color: $veryDarkGrayishBlueLightTheme;
+  background-color: inherit;
+  display: inline-block;
+  max-width: 440px;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .searchBox {
+    margin-bottom: 24px;
+  }
+}

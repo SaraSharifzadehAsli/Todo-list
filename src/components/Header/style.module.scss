@@ -1,0 +1,13 @@
+@import "../shared/mixins.module.scss";
+@import "../shared/variables.module.scss";
+
+.header {
+  @include display(flex, space-between, center);
+  font-weight: 700;
+  letter-spacing: 15px;
+  color: $white;
+
+  img {
+    cursor: pointer;
+  }
+}

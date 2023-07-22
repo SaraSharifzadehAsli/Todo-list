@@ -1,0 +1,26 @@
+@import "../shared/mixins.module.scss";
+@import "../shared/variables.module.scss";
+
+.footer {
+  text-align: center;
+  color: $darkGrayishBlueLightTheme;
+}
+
+.dragDrop {
+  font-size: 14px;
+  margin: 100px auto;
+  right: 0;
+  left: 0;
+  position: fixed;
+}
+
+.attribution {
+  font-size: 11px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

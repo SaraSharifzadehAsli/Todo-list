@@ -1,0 +1,13 @@
+@mixin display(
+  $display,
+  $justifyContent,
+  $alignItems,
+  $flexDirection: row,
+  $gap: unset
+) {
+  display: $display;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-direction: $flexDirection;
+  gap: $gap;
+}

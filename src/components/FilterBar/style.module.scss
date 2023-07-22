@@ -1,0 +1,47 @@
+@import "../shared/mixins.module.scss";
+@import "../shared/variables.module.scss";
+
+.blue {
+  color: $brightBluePrimary;
+}
+
+.filterBarDesktop {
+  @include display(flex, space-between, center);
+  color: $darkGrayishBlueLightTheme;
+  background-color: inherit;
+  font-size: 14px;
+  padding: 16px;
+  border-top: 1px solid $lightGrayishBlueHoverDarkTheme;
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.filterBarMobile {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 130px;
+  @include display(flex, center, center, row, 20px);
+  max-width: 540px;
+  margin: 16px 24px;
+  padding: 16px;
+  background-color: $white;
+  border-radius: $borderRadius;
+  font-weight: 700;
+  box-shadow: $boxShadow;
+}
+
+.darkTheme {
+  background-color: $veryDarkDesaturatedBlueDarkTheme;
+  box-shadow: $boxShadowDark;
+}
+
+@media (min-width: 600px) {
+  .filterBarMobile {
+    position: static;
+    margin: unset;
+    padding: unset;
+  }
+}

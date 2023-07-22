@@ -1,0 +1,82 @@
+@import "./components/shared/mixins.module.scss";
+@import "./components/shared/variables.module.scss";
+
+:root {
+  font-family: "Josefin Sans", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+input {
+  font: inherit;
+  outline: none;
+  border: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  color: inherit;
+  border: none;
+  font: inherit;
+  background-color: inherit;
+  transition: color 0.2s ease-in;
+  cursor: pointer;
+  &:hover {
+    color: $veryDarkGrayishBlueLightTheme;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  background-color: $veryLightGrayLightTheme;
+  height: 100vh;
+}
+
+.darkTheme {
+  background-color: $veryDarkBlueDarkTheme;
+}
+
+.darkTheme .background {
+  background-image: url(../images/bg-mobile-dark.jpg);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200px;
+  width: 100%;
+  z-index: 0;
+  background-image: url(../images/bg-mobile-light.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content {
+  position: relative;
+  max-width: 540px;
+  margin: 0 auto;
+  z-index: 1;
+  padding: 40px 24px 0;
+}
+
+@media (min-width: 600px) {
+  .background {
+    background-image: url(../images/bg-desktop-light.jpg);
+    height: 300px;
+    padding-bottom: 70px;
+  }
+
+  .darkTheme .background {
+    background-image: url(../images/bg-desktop-dark.jpg);
+  }
+}

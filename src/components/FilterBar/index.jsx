@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styles from "./style.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { removeCompletedTodos } from "../../redux/store";
+import { removeCompletedTodos } from "src/redux/store";
 import classNames from "classnames";
 
 const FilterBar = ({ handleFilters, condition }) => {
@@ -13,9 +13,10 @@ const FilterBar = ({ handleFilters, condition }) => {
     dispatch(removeCompletedTodos());
   }
 
-  const activeItemsLength = todos.filter(
-    (todo) => todo.completed === false
-  ).length;
+  const activeItemsLength = useMemo(
+    todos.filter((todo) => todo.completed === false).length,
+    todos
+  );
 
   return (
     <div className={styles.filterBarDesktop}>

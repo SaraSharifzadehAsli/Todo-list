@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import CompletedIcon from "../icons/CompletedIcon";
-import { removeTodo, toggleTodo } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./style.module.scss";
-import CircleIcon from "../icons/circleIcon";
-import CrossIcon from "../icons/crossIcon";
-import FilterBar from "../FilterBar";
 import classNames from "classnames";
-import useDragDrop from "../../hooks/useDragDrop";
+import FilterBar from "src/components/FilterBar/index";
+import useDragDrop from "src/hooks/useDragDrop";
+import { removeTodo, toggleTodo } from "src/redux/store";
+import CompletedIcon from "src/components/icons/completedIcon";
+import CircleIcon from "src/components/icons/circleIcon";
+import CrossIcon from "src/components/icons/crossIcon";
 
 const TodoList = () => {
   const [presentableTodos, setPresentableTodos] = useState([]);

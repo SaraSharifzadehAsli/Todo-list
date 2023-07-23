@@ -1,5 +1,5 @@
-@import "../shared/mixins.module.scss";
-@import "../shared/variables.module.scss";
+@import url("src/styles/mixins.module.scss");
+@import "src/styles/variables.module.scss";
 
 .todo {
   @include display(flex, space-between, center);

@@ -1,10 +1,10 @@
 import styles from "./App.module.scss";
-import Header from "./components/Header";
-import SearchBox from "./components/SearchBox";
-import TodoList from "./components/TodoList";
-import Footer from "./components/Footer";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
+import Header from "src/components/Header";
+import SearchBox from "src/components/SearchBox";
+import TodoList from "src/components/TodoList";
+import Footer from "src/components/Footer";
 
 function App() {
   const theme = useSelector((state) => state.theme);

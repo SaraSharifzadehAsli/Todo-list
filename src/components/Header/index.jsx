@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./style.module.scss";
-import { toggleTheme } from "../../redux/store";
+import { toggleTheme } from "src/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <h1>TODO</h1>
-      <img onClick={handleToggleTheme} src={srcImage} alt="moon" />
+      <img onClick={handleToggleTheme} src={srcImage} alt="moon-sun" />
     </header>
   );
 };

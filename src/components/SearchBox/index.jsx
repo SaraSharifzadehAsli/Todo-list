@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./style.module.scss";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "../../redux/store";
-import CircleIcon from "../icons/circleIcon";
+import { addTodo } from "src/redux/store";
+import CircleIcon from "src/components/icons/circleIcon";
 import classNames from "classnames";
 
 const SearchBox = () => {

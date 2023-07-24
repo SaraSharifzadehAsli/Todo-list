@@ -1,4 +1,4 @@
-@import url("src/styles/mixins.module.scss");
+@import "src/styles/mixins.module.scss";
 @import "src/styles/variables.module.scss";
 
 .blue {
@@ -19,13 +19,13 @@
 }
 
 .filterBarMobile {
-  position: fixed;
+  position: absolute;
   right: 0;
   left: 0;
-  bottom: 130px;
+  bottom: -90px;
   @include display(flex, center, center, row, 20px);
   max-width: 540px;
-  margin: 16px 24px;
+  margin: 16px 0px;
   padding: 16px;
   background-color: $white;
   border-radius: $borderRadius;

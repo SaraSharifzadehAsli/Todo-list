@@ -1,34 +1,30 @@
 import React from "react";
-import styles from "./style.module.scss";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "src/redux/store";
-import CircleIcon from "src/components/icons/circleIcon";
 import classNames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo, toggleAllTodos } from "src/redux/store";
+import styles from "./style.module.scss";
+import CircleIcon from "src/components/icons/circleIcon";
 
 const SearchBox = () => {
-  const [newTodo, setNewTodo] = useState("");
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
 
-  function handleInputChange(event) {
-    setNewTodo(event.target.value);
+  function handleToggleAllTodos(params) {
+    dispatch(toggleAllTodos());
   }
 
   function handleAddTodo(event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      if (newTodo.trim() !== "") {
-        dispatch(
-          addTodo({
-            id: Date.now(),
-            text: newTodo,
-            completed: false,
-          })
-        );
-      }
-      setNewTodo("");
-    }
+    event.preventDefault();
+    const newTodo = event.target.todo.value;
+    if (newTodo.trim() === "") return;
+    dispatch(
+      addTodo({
+        id: Date.now(),
+        text: newTodo,
+        completed: false,
+      })
+    );
+    event.target.todo.value = "";
   }
 
   return (
@@ -38,14 +34,10 @@ const SearchBox = () => {
       })}
     >
       <div className={styles.container}>
-        <CircleIcon />
-        <input
-          type="text"
-          placeholder="Create a new todo…"
-          value={newTodo}
-          onChange={handleInputChange}
-          onKeyDown={handleAddTodo}
-        />
+        <CircleIcon onClick={handleToggleAllTodos} />
+        <form onSubmit={handleAddTodo}>
+          <input type="text" placeholder="Create a new todo…" name="todo" />
+        </form>
       </div>
     </div>
   );

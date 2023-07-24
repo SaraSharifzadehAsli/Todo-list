@@ -15,7 +15,7 @@ function App() {
         [styles.darkTheme]: theme === "dark",
       })}
     >
-      <div className={styles.background}></div>
+      <div className={styles.background} />
       <div className={styles.content}>
         <Header />
         <SearchBox />

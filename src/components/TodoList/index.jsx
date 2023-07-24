@@ -65,8 +65,8 @@ const TodoList = () => {
               [styles.completedTodo]: todo.completed,
             })}
             draggable
-            onDragStart={() => handleDragStart(index)}
-            onDragEnter={() => handleDragEnter(index)}
+            onDragStart={() => handleDragStart(todo.id)}
+            onDragEnter={() => handleDragEnter(todo.id)}
             onDragEnd={handleDrop}
           >
             <div className={styles.checkAndText}>

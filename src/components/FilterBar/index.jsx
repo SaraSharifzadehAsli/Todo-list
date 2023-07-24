@@ -13,10 +13,9 @@ const FilterBar = ({ handleFilters, condition }) => {
     dispatch(removeCompletedTodos());
   }
 
-  const activeItemsLength = useMemo(
-    todos.filter((todo) => todo.completed === false).length,
-    todos
-  );
+  const activeItemsLength = useMemo(() => {
+    todos.filter((todo) => todo.completed === false).length;
+  }, [todos]);
 
   return (
     <div className={styles.filterBarDesktop}>

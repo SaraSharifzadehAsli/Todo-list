@@ -1,17 +1,13 @@
-@import url("src/styles/mixins.module.scss");
+@import "src/styles/mixins.module.scss";
 @import "src/styles/variables.module.scss";
 
 .todo {
   @include display(flex, space-between, center);
-  // background-color: $white;
   padding: 16px 24px;
   border-bottom: 1px solid $lightGrayishBlueHoverDarkTheme;
   cursor: pointer;
 
-  // &:hover > svg {
-  // }
   & > svg {
-    // opacity: 1;
     transition: $transition;
   }
 }
@@ -21,18 +17,17 @@
 }
 
 .todoList {
-  height: 412px;
+  height: 472px;
   background-color: $white;
   border-radius: $borderRadius;
-  overflow-y: auto;
   color: $veryDarkGrayishBlueLightTheme;
   box-shadow: $boxShadow;
-  position: relative;
   display: flex;
   flex-direction: column;
 
   ul {
     flex: 1;
+    overflow-y: auto;
   }
 }
 

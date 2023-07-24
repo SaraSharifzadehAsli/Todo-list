@@ -1,19 +1,19 @@
 import { useDispatch } from "react-redux";
 import { reorderTodos } from "src/redux/store";
 
-export default function useDragDrop(fromIndex, toIndex) {
+export default function useDragDrop(fromId, toId) {
   const dispatch = useDispatch();
 
   function handleDragStart(position) {
-    fromIndex.current = position;
+    fromId.current = position;
   }
 
   function handleDragEnter(position) {
-    toIndex.current = position;
+    toId.current = position;
   }
 
   function handleDrop() {
-    dispatch(reorderTodos({ fromIndex, toIndex }));
+    dispatch(reorderTodos({ fromId, toId }));
   }
 
   return { handleDragStart, handleDragEnter, handleDrop };

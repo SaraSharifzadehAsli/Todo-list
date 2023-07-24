@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CircleIcon = () => {
+const CircleIcon = ({ onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   function handleMouseEnter() {
@@ -17,6 +17,7 @@ const CircleIcon = () => {
 
   return (
     <svg
+      onClick={() => onClick && onClick()}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -24,6 +25,7 @@ const CircleIcon = () => {
       fill="none"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      style={{ cursor: "pointer" }}
     >
       <defs>
         <linearGradient id="storkeDefault">

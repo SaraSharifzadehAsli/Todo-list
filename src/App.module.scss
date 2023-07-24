@@ -1,5 +1,5 @@
-@import "./components/shared/mixins.module.scss";
-@import "./components/shared/variables.module.scss";
+@import "src/styles/mixins.module.scss";
+@import "src/styles/variables.module.scss";
 
 :root {
   font-family: "Josefin Sans", sans-serif;
@@ -38,7 +38,7 @@ button {
 .container {
   position: relative;
   background-color: $veryLightGrayLightTheme;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .darkTheme {

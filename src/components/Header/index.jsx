@@ -1,20 +1,19 @@
 import React from "react";
-import styles from "./style.module.scss";
-import { toggleTheme } from "src/redux/store";
 import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "src/redux/store";
+import styles from "./style.module.scss";
+
+import moonIcon from "images/icon-moon.svg";
+import sunIcon from "images/icon-sun.svg";
 
 const Header = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
-
-  console.log(theme);
+  const srcImage = theme === "dark" ? moonIcon : sunIcon;
 
   function handleToggleTheme() {
     dispatch(toggleTheme());
   }
-
-  const srcImage =
-    theme === "dark" ? "../images/icon-sun.svg" : "../images/icon-moon.svg";
 
   return (
     <header className={styles.header}>

@@ -25,11 +25,16 @@ const todosSlice = createSlice({
     },
     reorderTodos: (state, action) => {
       const newTodos = [...state];
-      const dragItemIndex = action.payload.fromIndex.current;
-      const dragOverItemIndex = action.payload.toIndex.current;
-      const [dragItemContent] = newTodos.splice(dragItemIndex, 1);
-      newTodos.splice(dragOverItemIndex, 0, dragItemContent);
+      const dragItemId = action.payload.fromId.current;
+      const dragItem = state.find((todo) => todo.id === dragItemId);
+      const dragOverItemId = action.payload.toId.current;
+      const dragOverItem = state.find((todo) => todo.id === dragOverItemId);
+      const [dragItemContent] = newTodos.splice(state.indexOf(dragItem), 1);
+      newTodos.splice(state.indexOf(dragOverItem), 0, dragItemContent);
       return newTodos;
+    },
+    toggleAllTodos: (state, action) => {
+      state.map((todo) => (todo.completed = !todo.completed));
     },
   },
 });
@@ -37,8 +42,6 @@ const todosSlice = createSlice({
 const isDarkModePreferred = window.matchMedia(
   "(prefers-color-scheme: dark)"
 ).matches;
-
-console.log(isDarkModePreferred);
 
 const themeSlice = createSlice({
   name: "theme",
@@ -76,6 +79,7 @@ export const {
   removeTodo,
   removeCompletedTodos,
   reorderTodos,
+  toggleAllTodos,
 } = todosSlice.actions;
 
 export const { toggleTheme } = themeSlice.actions;

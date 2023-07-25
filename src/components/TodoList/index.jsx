@@ -58,14 +58,13 @@ const TodoList = () => {
         {presentableTodos.map((todo) => (
           <TodoItem
             key={todo.id}
-            id={todo.id}
             onClick={() => handleToggleTodo(todo.id)}
             onDragStart={() => handleDragStart(todo.id)}
             onDragEnter={() => handleDragEnter(todo.id)}
             onDragEnd={handleDrop}
             isCompleted={todo.completed}
             text={todo.text}
-            handleRemoveTodo={handleRemoveTodo}
+            handleRemoveTodo={() => handleRemoveTodo(todo.id)}
           />
         ))}
       </ul>

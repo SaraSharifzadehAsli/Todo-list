@@ -7,7 +7,6 @@ import CrossIcon from "src/components/icons/crossIcon";
 import styles from "./style.module.scss";
 
 const TodoItem = ({
-  id,
   onClick,
   onDragStart,
   onDragEnter,
@@ -37,7 +36,7 @@ const TodoItem = ({
         {isCompleted ? <CompletedIcon /> : <CircleIcon />}
         <div>{text}</div>
       </div>
-      <CrossIcon onClick={() => handleRemoveTodo(id)} />
+      <CrossIcon onClick={handleRemoveTodo} />
     </li>
   );
 };

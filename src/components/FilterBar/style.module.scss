@@ -1,10 +1,6 @@
 @import "src/styles/mixins.module.scss";
 @import "src/styles/variables.module.scss";
 
-.blue {
-  color: $brightBluePrimary;
-}
-
 .filterBarDesktop {
   @include display(flex, space-between, center);
   color: $darkGrayishBlueLightTheme;

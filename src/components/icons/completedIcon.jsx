@@ -8,6 +8,7 @@ const CompletedIcon = (props) => {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
+      style={{ cursor: "pointer" }}
     >
       <circle cx="12" cy="12" r="11.5" fill="white" stroke="#E3E4F1" />
       <circle cx="12" cy="12" r="12" fill="url(#paint0_linear_0_479)" />

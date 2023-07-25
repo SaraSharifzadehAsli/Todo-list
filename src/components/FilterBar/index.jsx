@@ -1,13 +1,16 @@
 import React, { useMemo } from "react";
-import styles from "./style.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCompletedTodos } from "src/redux/store";
 import classNames from "classnames";
+import styles from "./style.module.scss";
+import FilterItem from "src/components/FilterItem";
 
 const FilterBar = ({ handleFilters, condition }) => {
   const todos = useSelector((state) => state.todos);
   const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
+
+  const filters = ["All", "Active", "Completed"];
 
   function handleRemoveCompletedTodos() {
     dispatch(removeCompletedTodos());
@@ -25,36 +28,14 @@ const FilterBar = ({ handleFilters, condition }) => {
           [styles.darkTheme]: theme === "dark",
         })}
       >
-        <li>
-          <button
-            className={classNames(styles.all, {
-              [styles.blue]: condition === "all",
-            })}
-            onClick={() => handleFilters("all")}
-          >
-            All
-          </button>
-        </li>
-        <li>
-          <button
-            className={classNames(styles.active, {
-              [styles.blue]: condition === "active",
-            })}
-            onClick={() => handleFilters("active")}
-          >
-            Active
-          </button>
-        </li>
-        <li>
-          <button
-            className={classNames(styles.completed, {
-              [styles.blue]: condition === "completed",
-            })}
-            onClick={() => handleFilters("completed")}
-          >
-            Completed
-          </button>
-        </li>
+        {filters.map((item, index) => (
+          <FilterItem
+            key={index}
+            item={item}
+            onClick={() => handleFilters(item.toLowerCase())}
+            isActive={condition === item.toLowerCase()}
+          />
+        ))}
       </ul>
       <button
         className={styles.clearCompleted}

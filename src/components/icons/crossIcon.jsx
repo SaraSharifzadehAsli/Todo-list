@@ -1,9 +1,9 @@
 import React from "react";
 
-const CrossIcon = ({ handleRemoveTodo, id }) => {
+const CrossIcon = ({ onClick }) => {
   return (
     <svg
-      onClick={() => handleRemoveTodo(id)}
+      onClick={onClick}
       xmlns="http://www.w3.org/2000/svg"
       width="18"
       height="18"

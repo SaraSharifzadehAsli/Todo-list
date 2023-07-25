@@ -23,6 +23,10 @@
   @include display(inline-flex, center, center, row, 24px);
 }
 
+.iconContainer {
+  @include display(flex, center, center);
+}
+
 .container input {
   color: $veryDarkGrayishBlueLightTheme;
   background-color: inherit;

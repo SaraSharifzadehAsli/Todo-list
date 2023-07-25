@@ -1,21 +1,6 @@
 @import "src/styles/mixins.module.scss";
 @import "src/styles/variables.module.scss";
 
-.todo {
-  @include display(flex, space-between, center);
-  padding: 16px 24px;
-  border-bottom: 1px solid $lightGrayishBlueHoverDarkTheme;
-  cursor: pointer;
-
-  & > svg {
-    transition: $transition;
-  }
-}
-
-.checkAndText {
-  @include display(inline-flex, space-between, center, row, 24px);
-}
-
 .todoList {
   height: 472px;
   background-color: $white;
@@ -34,28 +19,4 @@
 .todoList.darkTheme {
   background-color: $veryDarkDesaturatedBlueDarkTheme;
   box-shadow: $boxShadowDark;
-
-  & .todo {
-    color: $lightGrayishBlueDarkTheme;
-    border-bottom: 1px solid $veryDarkGrayishBlueTheme;
-  }
-
-  & .completedTodo {
-    color: $veryDarkGrayishBlueTheme;
-  }
-}
-
-.completedTodo {
-  text-decoration: line-through;
-  color: $lightGrayishBlueLightTheme;
-}
-
-@media (min-width: 600px) {
-  .todo:hover > svg {
-    opacity: 1;
-  }
-
-  .todo > svg {
-    opacity: 0;
-  }
 }

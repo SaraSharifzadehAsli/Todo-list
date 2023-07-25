@@ -5,9 +5,7 @@ import classNames from "classnames";
 import FilterBar from "src/components/FilterBar/index";
 import useDragDrop from "src/hooks/useDragDrop";
 import { removeTodo, toggleTodo } from "src/redux/store";
-import CompletedIcon from "src/components/icons/completedIcon";
-import CircleIcon from "src/components/icons/circleIcon";
-import CrossIcon from "src/components/icons/crossIcon";
+import TodoItem from "src/components/TodoItem";
 
 const TodoList = () => {
   const [presentableTodos, setPresentableTodos] = useState([]);
@@ -57,24 +55,18 @@ const TodoList = () => {
       })}
     >
       <ul>
-        {presentableTodos.map((todo, index) => (
-          <li
+        {presentableTodos.map((todo) => (
+          <TodoItem
             key={todo.id}
+            id={todo.id}
             onClick={() => handleToggleTodo(todo.id)}
-            className={classNames(styles.todo, {
-              [styles.completedTodo]: todo.completed,
-            })}
-            draggable
             onDragStart={() => handleDragStart(todo.id)}
             onDragEnter={() => handleDragEnter(todo.id)}
             onDragEnd={handleDrop}
-          >
-            <div className={styles.checkAndText}>
-              {todo.completed ? <CompletedIcon /> : <CircleIcon />}
-              <div>{todo.text}</div>
-            </div>
-            <CrossIcon handleRemoveTodo={handleRemoveTodo} id={todo.id} />
-          </li>
+            isCompleted={todo.completed}
+            text={todo.text}
+            handleRemoveTodo={handleRemoveTodo}
+          />
         ))}
       </ul>
       <FilterBar handleFilters={handleFilters} condition={condition} />

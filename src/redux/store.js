@@ -33,9 +33,6 @@ const todosSlice = createSlice({
       newTodos.splice(state.indexOf(dragOverItem), 0, dragItemContent);
       return newTodos;
     },
-    toggleAllTodos: (state, action) => {
-      state.map((todo) => (todo.completed = !todo.completed));
-    },
   },
 });
 

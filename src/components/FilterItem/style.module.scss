@@ -1,0 +1,6 @@
+@import "src/styles/mixins.module.scss";
+@import "src/styles/variables.module.scss";
+
+.blue {
+  color: $brightBluePrimary;
+}

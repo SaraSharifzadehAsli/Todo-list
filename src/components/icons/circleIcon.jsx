@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CircleIcon = ({ onClick }) => {
+const CircleIcon = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   function handleMouseEnter() {
@@ -17,7 +17,6 @@ const CircleIcon = ({ onClick }) => {
 
   return (
     <svg
-      onClick={() => onClick && onClick()}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

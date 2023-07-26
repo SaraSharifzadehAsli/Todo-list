@@ -1,15 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./style.module.scss";
 import classNames from "classnames";
-import FilterBar from "src/components/FilterBar/index";
-import useDragDrop from "src/hooks/useDragDrop";
+
 import { removeTodo, toggleTodo } from "src/redux/store";
+
+import FilterBar from "src/components/FilterBar/index";
 import TodoItem from "src/components/TodoItem";
+
+import useDragDrop from "src/hooks/useDragDrop";
+
+import { FILTER } from "src/constant";
+
+import styles from "./style.module.scss";
 
 const TodoList = () => {
   const [presentableTodos, setPresentableTodos] = useState([]);
-  const [condition, setCondition] = useState("all");
+  const [filter, setfilter] = useState(FILTER.ALL);
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos);
   const theme = useSelector((state) => state.theme);
@@ -29,24 +35,24 @@ const TodoList = () => {
   }
 
   function handleFilters(filter) {
-    setCondition(filter);
+    setfilter(filter);
   }
 
   useEffect(() => {
-    switch (condition) {
-      case "completed":
-        setPresentableTodos(todos.filter((todo) => todo.completed === true));
+    switch (filter) {
+      case FILTER.COMPLETED:
+        setPresentableTodos(todos.filter((todo) => todo.completed));
         break;
-      case "active":
-        setPresentableTodos(todos.filter((todo) => todo.completed === false));
+      case FILTER.ACTIVE:
+        setPresentableTodos(todos.filter((todo) => !todo.completed));
         break;
-      case "all":
+      case FILTER.ALL:
         setPresentableTodos(todos);
         break;
       default:
         break;
     }
-  }, [todos, condition]);
+  }, [todos, filter]);
 
   return (
     <div
@@ -68,7 +74,7 @@ const TodoList = () => {
           />
         ))}
       </ul>
-      <FilterBar handleFilters={handleFilters} condition={condition} />
+      <FilterBar handleFilters={handleFilters} filter={filter} />
     </div>
   );
 };

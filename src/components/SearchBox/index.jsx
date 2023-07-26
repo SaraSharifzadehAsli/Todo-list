@@ -1,10 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
-import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "src/redux/store";
-import styles from "./style.module.scss";
+import React, { useRef, useState } from "react";
+import classNames from "classnames";
+
+import CompletedIcon from "src/components/icons/completedIcon";
 import CircleIcon from "src/components/icons/circleIcon";
-import CompletedIcon from "../icons/completedIcon";
+
+import { addTodo } from "src/redux/store";
+
+import styles from "./style.module.scss";
 
 const SearchBox = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -13,7 +16,7 @@ const SearchBox = () => {
   const theme = useSelector((state) => state.theme);
 
   function handleChecked() {
-    isChecked ? setIsChecked(false) : setIsChecked(true);
+    setIsChecked((prevState) => !prevState);
     inputRef.current.focus();
   }
 
@@ -48,6 +51,7 @@ const SearchBox = () => {
             placeholder="Create a new todo…"
             name="todo"
             autoFocus
+            autoComplete="off"
           />
         </form>
       </div>

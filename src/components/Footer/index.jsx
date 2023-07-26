@@ -1,7 +1,8 @@
-import React from "react";
-import styles from "./style.module.scss";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
+import React from "react";
+
+import styles from "./style.module.scss";
 
 const Footer = () => {
   const theme = useSelector((state) => state.theme);

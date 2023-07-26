@@ -1,10 +1,12 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "src/redux/store";
-import styles from "./style.module.scss";
+import React from "react";
 
 import moonIcon from "images/icon-moon.svg";
 import sunIcon from "images/icon-sun.svg";
+
+import { toggleTheme } from "src/redux/store";
+
+import styles from "./style.module.scss";
 
 const Header = () => {
   const dispatch = useDispatch();

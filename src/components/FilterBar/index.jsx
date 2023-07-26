@@ -1,23 +1,26 @@
-import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeCompletedTodos } from "src/redux/store";
+import React, { useMemo } from "react";
 import classNames from "classnames";
-import styles from "./style.module.scss";
+
 import FilterItem from "src/components/FilterItem";
 
-const FilterBar = ({ handleFilters, condition }) => {
+import { removeCompletedTodos } from "src/redux/store";
+
+import { filters } from "src/constant";
+
+import styles from "./style.module.scss";
+
+const FilterBar = ({ handleFilters, filter }) => {
   const todos = useSelector((state) => state.todos);
   const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
-
-  const filters = ["All", "Active", "Completed"];
 
   function handleRemoveCompletedTodos() {
     dispatch(removeCompletedTodos());
   }
 
   const activeItemsLength = useMemo(() => {
-    todos.filter((todo) => todo.completed === false).length;
+    return todos.filter((todo) => !todo.completed).length;
   }, [todos]);
 
   return (
@@ -32,8 +35,8 @@ const FilterBar = ({ handleFilters, condition }) => {
           <FilterItem
             key={index}
             item={item}
-            onClick={() => handleFilters(item.toLowerCase())}
-            isActive={condition === item.toLowerCase()}
+            onClick={() => handleFilters(item)}
+            isActive={filter === item}
           />
         ))}
       </ul>

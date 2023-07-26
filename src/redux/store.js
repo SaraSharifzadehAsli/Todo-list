@@ -1,7 +1,7 @@
 import { createSlice, configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // Defaults to localStorage for web
 import { getDefaultMiddleware } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
 
 const todosSlice = createSlice({
   name: "todos",

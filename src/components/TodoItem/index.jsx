@@ -1,9 +1,11 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
+import React from "react";
+
 import CompletedIcon from "src/components/icons/completedIcon";
 import CircleIcon from "src/components/icons/circleIcon";
 import CrossIcon from "src/components/icons/crossIcon";
+
 import styles from "./style.module.scss";
 
 const TodoItem = ({
